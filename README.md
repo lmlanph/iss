@@ -6,4 +6,6 @@ sign up for text alerts letting you know viewing conditions are good for seeing 
 
 view ISS position on map
 
-queries weather, daylight API's
+queries weather, ISS coordinates, and daylight (local dawn/dusk) API's
+
+text via twilio platform
