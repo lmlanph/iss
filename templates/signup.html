@@ -1,0 +1,198 @@
+  <!-- 
+  local dir:
+  cd /Users/mxm.ml/Documents/python/ISS/site
+  to run a local server with python:
+  python3 -m http.server
+  -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>spacewa</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166071837-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-166071837-1');
+  </script>
+  <!-- End Google Analytics -->
+
+</head>
+
+<body>
+
+  <section id="colorMe" class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title"><a class="linkWht" href="/">>spacewa</a></h1>
+
+        <h2 class="subtitle">
+          sign up baby! (or, adjust your settings)
+        </h2>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+    <h1 class="subtitle">
+      if cloud cover is less than 50% and the lighting is right... 
+      spacewa <strong>will send you a text</strong> to run outside (watch for cars!)<br> <br> 
+
+    </h1>
+
+    {% if message %}
+    <article class="message is-warning">
+      <div class="message-header">
+        <p>hey!</p>
+        <!-- x button
+        <button class="delete" aria-label="delete"></button>
+        -->
+      </div>
+      <div class="message-body">
+        {{ message | safe }}
+      </div>
+    </article>
+    {% endif %}
+
+    <form action="/submit" method="POST">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">first name</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" name="fname" type="text" placeholder="Allison">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">mobile</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" name="phone" type="text" placeholder="123-123-1234">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">number of ISS passes</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select name="passes">
+                  <option value="1">one pass</option>
+                  <option value="5">five passes</option>
+                  <option value="10">ten passes</option>
+                  <option value="999">until I reply STOP</option>
+                  <option value="0">remove passes</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">time of day</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select name="time">
+                  <option value="1">dusk</option>
+                  <option value="2">dawn</option>
+                  <option value="3">both</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">nearest town</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select name="city">
+                  <option>bellingham</option>
+                  <option>colville</option>
+                  <option>portland</option>
+                  <option>seattle</option>
+                  <option>spokane</option>
+                  <option>vancouver bc</option>
+                  <option>walla walla</option>
+                  <option>wenatchee</option>
+                  <option>CA los angeles</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-primary">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+
+    </div>
+
+    <section class="section">
+        <div class="container">
+          
+          <p class="smallText">
+            just a heads up, cloud cover, etc is determined by nearby city, so it's not perfect. Also, this mostly works in WA for the time being.<br>
+            feedback welcome: <strong>washington.space@gmail.com</strong>
+          </p>
+        </div>
+      </section>
+
+
+  </section>
+
+
+
+  
+
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <script src="../static/ISS_01.js"></script>
+  
+</body>
+</html>

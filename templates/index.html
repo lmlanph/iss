@@ -1,0 +1,122 @@
+  <!-- 
+  local dir:
+  cd /Users/mxm.ml/Documents/python/ISS
+  to run a local server with python:
+  python3 -m http.server
+  or
+  run pipenv shell, then gunicorn app:app
+  -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>spacewa</title>
+
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166071837-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-166071837-1');
+  </script>
+  <!-- End Google Analytics -->
+
+</head>
+
+<body>
+
+  <section id="colorMe" class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          >spacewa
+        </h1>
+        <h2 class="subtitle">
+          locally sourced satellites
+        </h2>
+        <!-- <button id="zoomBtn" class="button is-inverted is-outlined">zoom +/-</button> -->
+
+      </div>
+    </div>
+  </section>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages[:1] %}
+          <div class="fade_in">
+            {{ message }}
+          </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  {% if message %}
+  <article class="message is-warning">
+    <div class="message-header">
+      <button class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+      {{ message | safe }}
+    </div>
+  </article>
+  {% endif %}
+
+  <div id="mainContainer">
+    <div id="svgContainer">
+      <svg>
+        <style>
+          .heavy { font: bold 20px sans-serif; fill: #FF6EF2; opacity: 0.8; }
+        </style>
+        <text x='1215' y='70' class='heavy'>interval: 90 sec</text>
+        <!-- plus and minus zoom buttons -->
+        <g class="zoom-controls" transform="translate(40, 50)">
+          <g id="zoom-in" transform="scale(.3)">
+            <svg>
+            <circle class="st0" cx="150" cy="150" r="146.2"/>
+            <line class="st1" x1="150" y1="61.2" x2="150" y2="238.8"/>
+            <line class="st1" x1="238.8" y1="150" x2="61.2" y2="150"/>
+            </svg>
+          </g>
+          <g id="zoom-out" transform="translate(100, 0) scale(.3)">
+            <svg>
+            <circle class="st0" cx="150" cy="150" r="146.2"/>
+            <line class="st1" x1="238.8" y1="150" x2="61.2" y2="150"/>
+            </svg>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="subtitle">
+        a simple messenger service to let you know there's probably <strong>A SPACE STATION</strong> flying over Washington :)
+      </h2>
+      <button class="button is-primary" onclick="window.location.href = '/signup';">sign me up!</button>
+      <br><br>
+      <p class="smallText">questions? look <strong><a class="linkBlk" href="/faq">here </a></strong>or contact:<br><strong>washington.space@gmail.com</strong></p>
+
+    </div>
+
+  </section>
+
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <script src="../static/ISS_01.js"></script>
+  
+</body>
+</html>

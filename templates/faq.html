@@ -1,0 +1,89 @@
+  <!-- 
+  local dir:
+  cd /Users/mxm.ml/Documents/python/ISS/site
+  to run a local server with python:
+  python3 -m http.server
+  -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>spacewa</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166071837-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-166071837-1');
+  </script>
+  <!-- End Google Analytics -->
+
+</head>
+
+<body>
+
+  <section id="colorMe" class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title"><a class="linkWht" href="/">>spacewa</a></h1>
+
+        <h2 class="subtitle">
+          questions? answers!
+        </h2>
+
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+
+
+    <p>
+      what the hek?<br> 
+      <strong>a simple messenger service to let u know there's probably a space station overhead</strong><br> 
+      why just one state?<br> 
+      <strong>baby steps</strong><br> 
+      do you take (city/state) requests?<br> 
+      <strong>sure! washington.space@gmail.com</strong><br> 
+      are there other applications that do this?<br> 
+      <strong>yes, and probably much better. But this one has more fun colors</strong><br> 
+      how often can I see the ISS over my town?<br> 
+      <strong>good question...orbit takes about 92 minutes. But other factors, including planet rotation, daylight, weather—you'll just have to sign up!</strong><br>
+      what should I look for?<br>
+      <strong>a small, bright object, moving fast-ish from west to east</strong><br> 
+      what is the map for?<br> 
+      <strong>the map should show the current (and recent) ISS position/path over north america</strong><br> 
+      will you sell my phone number to a hardline regime?<br> 
+      <strong>spacewa will never do that</strong><br> 
+      why does the space station's apparent path over the earth appear as a sine wave?<br> 
+      <strong>this is from the map projection distorting the path (globe flattened out to a map). Maybe also in part due to planet rotation? less sure on that...</strong><br>
+      did you copy/paste this code?<br> 
+      <strong>yes, but only about 75% of it. For map, see d3.js by M Bostock, very neat</strong><br> 
+      shout outs to any API's?<br> 
+      <strong>open-notify.org | darksky.net | sunrise-sunset.org</strong><br> 
+
+
+      
+
+    </p>
+    <br>
+    <button class="button is-primary" onclick="window.location.href = '/signup';">sign me up!</button>
+
+  </section>
+
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <script src="../static/ISS_01.js"></script>
+  
+</body>
+</html>
