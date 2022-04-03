@@ -1,4 +1,4 @@
-# iss
+# iss (web app)
 
 Flask site and background process
 
